@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Miniclip JavaScript SDK Basic Example</title>
+    </head>
+    <body>
+        
+        <!-- Your content here -->
+        
+        <script id="miniclip-js">
+        window.mcAsyncInit = function() {
+            MC.resize();
+        };
+        </script>
+        
+        <script>
+        (function(d, s, id){
+            var js, mcjs = d.getElementById('miniclip-js');
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = '//static.miniclipcdn.com/js/mc.js';
+            mcjs.parentNode.insertBefore(js, mcjs);
+        }(document, 'script', 'miniclip-jssdk'));
+        </script>
+        
+    </body>
+</html>
