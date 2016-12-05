@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cenas</title>
+    <style>
+        body { padding: 0; margin: 0; }
+        #game_container {
+            position:absolute; 
+            width: 100%;
+            height:100%; 
+            padding: 0;
+            margin:0
+        }
+    </style>
+</head>
+<body>
+    <div id="game_container" >
+        <h1>Basic MiniclipAPI test</h1>
+        <h2>Game title</h2>
+        <p>This is a fake game!</p>
+        <a href="#" onclick="MC.ads.requestVideoAd('preroll'); return false;">See VideoAd PreRoll</a><br/>
+        <a href="#" onclick="MC.ads.requestVideoAd('midroll'); return false;">See VideoAd MidRoll</a><br/>
+        <a href="#" onclick="MC.ads.refreshSlot(); return false;">Refresh Static Ad</a>
+    </div>
+
+<script type="text/javascript">
+function mcReady()
+{
+    console.log("== MC is ready! ==");
+    MC.init({
+            ads: {
+                videoAds: [
+                    ['preroll', "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=vmap&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ar%3Dpreonly&cmsid=496&vid=short_onecue&correlator="],
+                    ['midroll', "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=vmap&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ar%3Dpreonly&cmsid=496&vid=short_onecue&correlator=" ]
+                ],
+                displayAds: [
+                    ['slot1','/6355419/Travel/Europe/France/Paris', [300, 250]],
+                    ['leaderboard1','/6355419/Travel/Europe/France/Paris', [728, 90]]
+                ]
+            }
+        }, 
+        function(){
+            console.log("== MC.init complete ==");
+            console.log("version="+MC.version);
+
+            MC.ads.updateSlot('slot1', { bottom: 10, align:"center"});
+            MC.ads.updateSlot('leaderboard1', { top: 10, align:"center"});
+            
+            MC.ads.showAd('slot1');
+            MC.ads.showAd('leaderboard1');
+    });
+}
+</script>
+<script src="https://miniclip.com/js/sdk/v1/miniclip.min.js" type="text/javascript" data-modules="ads,unity" ></script>
+</body>
+</html>
