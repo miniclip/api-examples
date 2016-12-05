@@ -12,6 +12,8 @@ namespace mc {
 		public const string LOADED = "ads.videoad.ad_loaded";
 		public const string AD_BLOCKED = "ads.adblocked";
 		public const string NOT_AD_BLOCKED = "ads.not_adblocked";
+		public const string PREROLL_COMPLETE = "ads.videoad.preroll_complete";
+        public const string PREROLL_STARTED = "ads.videoad.preroll_started";
 
 		private MiniclipSdk hub;
 
