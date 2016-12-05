@@ -50,7 +50,15 @@ function mcReady()
             MC.ads.showAd('leaderboard1');
     });
 }
+
+(function(d, s, id, modules){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     if (modules) js.setAttribute('data-modules', modules.join(','));
+     js.src = "//miniclip.com/js/sdk/v1/miniclip.min.js";
+     fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'miniclipsdk', ['ads','unity'] ));
 </script>
-<script src="https://miniclip.com/js/sdk/v1/miniclip.min.js" type="text/javascript" data-modules="ads,unity" ></script>
 </body>
 </html>
