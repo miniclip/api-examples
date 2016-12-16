@@ -56,7 +56,7 @@ function mcReady()
      if (d.getElementById(id)) {return;}
      js = d.createElement(s); js.id = id;
      if (modules) js.setAttribute('data-modules', modules.join(','));
-     js.src = "//miniclip.com/js/sdk/v1/miniclip.min.js";
+     js.src = "//static.miniclipcdn.com/js/sdk/v1/miniclip.js";
      fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'miniclipsdk', ['ads','unity'] ));
 </script>
