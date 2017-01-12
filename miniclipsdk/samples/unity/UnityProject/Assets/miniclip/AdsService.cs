@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace mc {
 	
-	public delegate void Eventhandler(string eventName);
+	public delegate void Eventhandler(string eventName, object data);
 
 	public class AdsService {
 
@@ -14,6 +14,7 @@ namespace mc {
 		public const string NOT_AD_BLOCKED = "ads.not_adblocked";
 		public const string PREROLL_COMPLETE = "ads.videoad.preroll_complete";
         public const string PREROLL_STARTED = "ads.videoad.preroll_started";
+		public const string ERROR = "ads.videoad.error";
 
 		private MiniclipSdk hub;
 
@@ -30,9 +31,14 @@ namespace mc {
 		{
 		}
 
+		public void OnAdError( string errorMsg )
+		{
+			events ( ERROR, errorMsg);
+		}
+
 		public void OnAdEvent( string eventName )
 		{
-			events (eventName);
+			events (eventName, null);
 		}
 
 		public void requestVideoAd( string slotId )

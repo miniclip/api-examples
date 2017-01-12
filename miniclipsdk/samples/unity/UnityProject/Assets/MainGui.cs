@@ -26,7 +26,7 @@ public class MainGui : MonoBehaviour
 	{
 	}
 
-	void OnEventHandler( string eventName )
+	void OnEventHandler( string eventName , object eventData )
 	{
 		switch(eventName){
 		case mc.AdsService.AD_BLOCKED:
@@ -43,6 +43,11 @@ public class MainGui : MonoBehaviour
 		case mc.AdsService.LOADED:
 			mStatusText = "Loaded Video Ad";
 			videoAdBtn = false;
+			break;
+		
+		case mc.AdsService.ERROR:
+			mStatusText = "Error in video:" + ((string)eventData);
+			Debug.Log(mStatusText);
 			break;
 
 		}

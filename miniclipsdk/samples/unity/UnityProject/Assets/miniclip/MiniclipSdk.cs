@@ -33,9 +33,15 @@ public class MiniclipSdk : MonoBehaviour {
 		Application.ExternalCall ("MC.unity.setup", _gameObject.name);
 	}
 
+	public void AdError ( string errorMsg )
+	{
+		//Debug.Log ("Got AdError");
+		ads.OnAdError(errorMsg);
+	}
+	
 	public void AdEvent( string eventName )
 	{
-		Debug.Log ("Got AdEvent: " + eventName);
+		//Debug.Log ("Got AdEvent: " + eventName);
 		ads.OnAdEvent (eventName);
 	}
 
