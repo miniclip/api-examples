@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../">
+	<title>cenas</title>
+    <style>
+        body { padding: 0; margin: 0; }
+        #game_container {
+            position:absolute; 
+            width: 100%;
+            height:100%; 
+            padding: 0;
+            margin:0
+        }
+    </style>
+</head>
+<body>
+    <div id="game_container" >
+        <h1>Basic MiniclipAPI test</h1>
+        <h2>Game title</h2>
+        <p>This is a fake game!</p>
+
+        <a href="#" onclick="sendInitEvent(); return false;"> Send Init Event </a><br/>
+        <a href="#" onclick="sendMatchEvent(); return false;"> Send Match Event </a><br/>
+        
+        <p>The End Session event is sent automatically on page exit</p>
+        <br/>
+
+        <p>Note: Don't forget to replace the configuration parameters with your own!</p>
+    </div>
+
+<script type="text/javascript">
+function mcReady()
+{
+    console.log("== MC is ready! ==");
+    MC.init({
+            analytics: {
+                gameId: -1, //<game-id-here>,
+	            apiKey: "<api-key-here>",
+                checksumKey: "<checksum-key-here>",
+                environment: "<environment-name-here>",
+                gameName: "<game-name-here>",
+                version: "v1.0",
+                ga_tracking_id: "<optional-google-analytics-tracking-id-here>"
+            }
+        }, 
+        function(){
+            console.log("== MC.init complete ==");
+            console.log("version="+MC.version);
+
+    });
+}
+
+function sendInitEvent(){
+    MC.analytics.sendInitEvent({ login_type: "guest", country: "PT", game_version: "1.0" });
+}
+
+function sendMatchEvent(){
+    MC.analytics.sendMatchEvent({ match_duration: 120, top_position: 9, final_position: 99 });
+}
+
+(function(d, s, id, modules){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     if (modules) js.setAttribute('data-modules', modules.join(','));
+     js.src = "https://static.miniclipcdn.com/js/sdk/v1.2/miniclip.js";
+     fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'miniclipsdk', ["analytics"] ));
+</script>
+</body>
+</html>
