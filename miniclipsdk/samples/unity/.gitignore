@@ -1,3 +1,4 @@
 UnityProject/ProjectSettings/*
 UnityProject/Library/*
 UnityProject/*.sln
+UnityProject/Assembly-CSharp*
