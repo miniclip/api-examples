@@ -3,12 +3,15 @@ using System.Collections;
 
 namespace mc {
 	
+	public delegate void Eventhandler(string eventName, object data);
+	
 public class MiniclipSdk : MonoBehaviour {
 
 	static public MiniclipSdk instance;
 	static private GameObject _gameObject;
 
 	public AdsService ads;
+	public AnalyticsService analytics;
 
 
 	static public MiniclipSdk GetInstance()

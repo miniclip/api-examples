@@ -2,8 +2,6 @@
 using UnityEngine;
 
 namespace mc {
-	
-	public delegate void Eventhandler(string eventName, object data);
 
 	public class AdsService {
 
@@ -48,8 +46,7 @@ namespace mc {
 
 		public void showAndRefresh( string slotId )
 		{
-			refreshSlot(slotId);
-			showAd(slotId);
+			refreshSlot(slotId, true);
 		}
 
 		public void showAd( string slotId )
@@ -62,9 +59,14 @@ namespace mc {
 			Application.ExternalCall("MC.ads.hideAd", slotId);
 		}
 
-		public void refreshSlot( string slotId )
+		public void refreshSlot( string slotId, bool showOnLoad = false )
 		{
-			Application.ExternalCall("MC.ads.refreshSlot", slotId);
+			Application.ExternalCall("MC.ads.refreshSlot", slotId, showOnLoad);
+		}
+
+		public void destroySlot( string slotId )
+		{
+			Application.ExternalCall("MC.ads.destroySlot", slotId);
 		}
 
 		public void checkAdBlocker()
