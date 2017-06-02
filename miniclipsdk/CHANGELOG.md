@@ -1,3 +1,7 @@
+v1.5
+ * Support changing the namespace the sdk will be loaded into
+ * Send session_length in seconds instead of milliseconds
+
 v1.4
  * Support registering unity SendMessage method
  * Send READY event only after module been initialized
