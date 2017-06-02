@@ -7,6 +7,8 @@ namespace mc {
 	
 public class MiniclipSdk : MonoBehaviour {
 
+	static public string sdkHandler = "MC";
+
 	static public MiniclipSdk instance;
 	static private GameObject _gameObject;
 
@@ -33,7 +35,7 @@ public class MiniclipSdk : MonoBehaviour {
 
 		ads = new AdsService (this);
 
-		Application.ExternalCall ("MC.unity.setup", _gameObject.name);
+		CallMethod( "unity.setup", _gameObject.name);
 	}
 
 	public void AdError ( string errorMsg )
@@ -48,7 +50,10 @@ public class MiniclipSdk : MonoBehaviour {
 		ads.OnAdEvent (eventName);
 	}
 
-
+	public void CallMethod( string methodName, params object[] args)
+	{
+		Application.ExternalCall( sdkHandler + "."+ methodName, args);
+	}
 }
 
 }

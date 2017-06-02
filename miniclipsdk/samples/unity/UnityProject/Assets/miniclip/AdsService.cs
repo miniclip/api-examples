@@ -41,7 +41,7 @@ namespace mc {
 
 		public void requestVideoAd( string slotId )
 		{
-			Application.ExternalCall ("MC.ads.requestVideoAd", slotId);
+			hub.CallMethod("ads.requestVideoAd", slotId);
 		}
 
 		public void showAndRefresh( string slotId )
@@ -51,27 +51,27 @@ namespace mc {
 
 		public void showAd( string slotId )
 		{
-			Application.ExternalCall("MC.ads.showAd", slotId);
+			hub.CallMethod("ads.showAd", slotId);
 		}
 
 		public void hideAd( string slotId )
 		{
-			Application.ExternalCall("MC.ads.hideAd", slotId);
+			hub.CallMethod("ads.hideAd", slotId);
 		}
 
 		public void refreshSlot( string slotId, bool showOnLoad = false )
 		{
-			Application.ExternalCall("MC.ads.refreshSlot", slotId, showOnLoad);
+			hub.CallMethod("ads.refreshSlot", slotId, showOnLoad);
 		}
 
 		public void destroySlot( string slotId )
 		{
-			Application.ExternalCall("MC.ads.destroySlot", slotId);
+			hub.CallMethod("ads.destroySlot", slotId);
 		}
 
 		public void checkAdBlocker()
 		{
-			Application.ExternalCall ("MC.unity.requestAdBlockerStatus");
+			hub.CallMethod("unity.requestAdBlockerStatus");
 		}
 
 	}
